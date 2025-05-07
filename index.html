@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Download your YouTube likes</title>
+
+  <!-- Look Google Identity Services (SGI) and the API client library -->
+  <script src="https://accounts.google.com/gsi/client"></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+
+  <script src="download_youtube_likes.js"></script>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      gapi.load("client", initializeGapiClient);
+    });
+  </script>
+
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>
+      Download your YouTube likes
+    </h1>
+  </header>
+
+  <main>
+    <div id="status" data-state="loading">
+      <noscript>
+        <p>You need to enable JavaScript to use this app!</p>
+      </noscript>
+
+      <p>
+        Waiting for YouTube API to load…
+      </p>
+    </div>
+
+    <p>
+      This site will let you get a list of your Liked Videos on YouTube in a convenient, easy-to-read HTML format.
+    </p>
+
+    <div id="signin-container" style="display: none;">
+      <p>Start by signing into YouTube:</p>
+      <button id="signin">Sign in with Google</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      Made with ❤︎ by <a href="https://alexwlchan.net">Alex Chan</a> (she/they).
+    </p>
+  </footer>
+</body>
+
+</html>

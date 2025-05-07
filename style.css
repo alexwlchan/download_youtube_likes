@@ -1,0 +1,18 @@
+#status {
+  --color: 0, 0, 0;
+  border: 2px solid rgb(var(--color));
+  background: rgba(var(--color), 0.1);
+  padding: 1em;
+  border-radius: 8px;
+}
+
+#status noscript + p { margin-top:    0; }
+#status p:last-child { margin-bottom: 0; }
+
+#status[data-state="loading"] {
+  --color: 0, 0, 255;
+}
+
+#status[data-state="error"] {
+  --color: 255, 0, 0;
+}
