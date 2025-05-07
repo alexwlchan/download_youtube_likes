@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <title>Download your YouTube likes</title>
+  <title>List your YouTube likes</title>
 
   <!-- Look Google Identity Services (SGI) and the API client library -->
   <script src="https://accounts.google.com/gsi/client"></script>
   <script src="https://apis.google.com/js/api.js"></script>
 
-  <script src="download_youtube_likes.js"></script>
+  <script src="list_youtube_likes.js"></script>
 
   <script>
     window.addEventListener("DOMContentLoaded", function() {
@@ -20,42 +20,114 @@
     });
   </script>
 
-    <link href="style.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
-  <header>
-    <h1>
-      Download your YouTube likes
-    </h1>
-  </header>
-
   <main>
-    <div id="status" data-state="loading">
+    <h1>
+      List your YouTube likes
+    </h1>
+
+    <p>
+      <strong>Download a list of your Liked Videos on YouTube in a convenient, easy-to-read HTML format.</strong>
+    </p>
+
+    <div id="login-status" class="status" data-state="loading">
       <noscript>
         <p>You need to enable JavaScript to use this app!</p>
       </noscript>
 
       <p>
-        Waiting for YouTube API to load…
+        Setting up app… (if this doesn’t go away, try reloading the page)
       </p>
     </div>
 
-    <p>
-      This site will let you get a list of your Liked Videos on YouTube in a convenient, easy-to-read HTML format.
-    </p>
-
     <div id="signin-container" style="display: none;">
-      <p>Start by signing into YouTube:</p>
+      <p>Start by signing in to your YouTube account:</p>
       <button id="signin">Sign in with Google</button>
     </div>
-  </main>
 
-  <footer>
-    <p>
-      Made with ❤︎ by <a href="https://alexwlchan.net">Alex Chan</a> (she/they).
-    </p>
-  </footer>
+    <div id="likes-container" style="display: none;">
+      <p>You’ve signed in! Now you can fetch your Liked Videos:</p>
+
+      <div class="buttons">
+        <button id="fetch-likes">Fetch my Liked Videos</button>
+        <button id="toggle-preview" style="display: none;">Toggle preview</button>
+        <button id="download-html" style="display: none;">Download list</button>
+        <button id="signout">Sign out</button>
+      </div>
+
+      <div id="fetch-status" class="status" data-state="loading" style="display: none;">
+        <p></p>
+      </div>
+    </div>
+
+    <iframe id="preview-container" style="display: none;"></iframe>
+
+    <h2 id="faqs">FAQs</h2>
+
+    <dl>
+      <dt>
+        Who made this?
+      </dt>
+      <dd>
+        It’s made by <a href="https://alexwlchan.net/">alexwlchan</a>.
+        If you find it useful, maybe <a href="https://ko-fi.com/alexwlchan">buy me a coffee</a>?
+      </dd>
+
+      <dt id="privacy">
+        Can you see what videos I’ve liked?
+      </dt>
+      <dd>
+        No!
+        This is completely private – everything stays on your phone/computer.
+        I can’t see who you are or what videos you’ve liked on YouTube – that information is never sent to my server.
+      </dd>
+
+      <dt>
+        Beep, boop, I am computer. Can I get my likes in a machine-readable format?
+      </dt>
+      <dd>
+        Yes!
+        When you download the HTML file, all the Likes data is stored embedded in a &lt;script&gt; tag.
+        You can extract it and feed it to your own scripts or tools like <a href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a>.
+      </dd>
+
+      <dt>
+        How does it work?
+      </dt>
+      <dd>
+        You can “View source” on this web page and see all the code, or <a href="https://github.com/alexwlchan/download_youtube_likes">look at the GitHub repository</a>.
+      </dd>
+
+      <dt>
+        I love this tool! How can I make sure it doesn’t go away?
+      </dt>
+      <dd>
+        You can <a href="https://ko-fi.com/alexwlchan">buy me a coffee</a> which will make me feel happy and keep running my websites, or you can download this web page and get a copy that will run on your computer.
+        (You will need to set up your own Google Cloud credentials.)
+      </dd>
+
+      <dt>
+        I like this tool, but I’d love it even more if it behaved differently!
+        How can I do that?
+      </dt>
+      <dd>
+        You can ask me nicely (file a <a href="https://github.com/alexwlchan/download_youtube_likes/issues/new?template=Blank+issue">GitHub issue</a> or <a href="mailto:alex@alexwlchan.net">send me an email</a>), or you can do it yourself!
+        This tool is only three files (HTML, JavaScript, and CSS), so you can download it and then make your own changes to the HTML and JavaScript until it works the way you want.
+      </dd>
+
+      <dt>
+        Something is broken.
+        Can you fix it?
+      </dt>
+      <dd>
+        <a href="https://github.com/alexwlchan/download_youtube_likes/issues/new?template=Blank+issue">File an issue</a> in the GitHub repository, or <a href="mailto:alex@alexwlchan.net">send me an email</a>.
+        It’s useful if you tell me what happened when it broke, and what browser you were using.
+      </dd>
+    </dl>
+  </main>
 </body>
 
 </html>
